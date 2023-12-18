@@ -47,7 +47,7 @@ const fetchUserInfo = () => {
     return async (dispatch) => {
         // 1.发送异步请求
         const res = await getUserInfoApi()
-        dispatch(setUserInfo(res.data))
+        dispatch(setUserInfo(res.data.user))
     }
 }
 // 解构出actionCreater
