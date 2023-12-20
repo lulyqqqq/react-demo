@@ -1,12 +1,6 @@
 import AMapExample from "@/pages/Home/Components";
-
 const Home = () => {
-    return (
-        <div>
-            展示地图
-            <AMapExample></AMapExample>
-        </div>
-    )
+    return <AMapExample/>
 }
 
 export default Home

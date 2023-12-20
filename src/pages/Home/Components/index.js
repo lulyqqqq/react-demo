@@ -1,33 +1,34 @@
-import React, {useEffect} from 'react';
-import AMapLoader from '@amap/amap-jsapi-loader';
+import { useEffect, useState } from 'react';
+import {Marker,Map} from "react-amap";
 
 const AMapExample = () => {
-    useEffect(() => {
-        AMapLoader.load({
-            "key": "8212cab39b6b66f386613a84d6671f4e",   // 申请好的Web端开发者Key，首次调用 load 时必填
-            "version": "2.0",   // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-            "plugins": []  //插件列表
-        }).then((AMap) => {
-            let amap = new AMap.Map('mapContainer', { // mapcontainer为容器的id
-                zoom: 15, //初始化地图层级
-                center: [112.5266, 27.91507] //初始化地图中心点
-            });
-            // 标记
-            let marker = new AMap.Marker({
-                position: [112.5266, 27.91507] // 基点位置
-            });
-            // 地图添加标记
-            amap.add(marker);
-        }).catch(e => {
-            console.log(e);
-        })
+    const [longitude, setLongitude] = useState(null);
+    const [latitude, setLatitude] = useState(null);
 
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLongitude(position.coords.longitude);
+            setLatitude(position.coords.latitude);
+        });
 
     }, []);
 
     return (
-        <div id="mapContainer" style={{width: '100%', height: '760px'}}></div>
+        <div style={{ width: '100%', height: '800px' }}>
+            <Map
+                viewMode="3D"
+                zoom={17}
+                center={[113.439088, 23.150132]}
+                amapkey="8212cab39b6b66f386613a84d6671f4e"
+                version="2.0"
+            >
+                {longitude && latitude && (
+                    <Marker position={[113.439088, 23.150132]} />
+                )}
+            </Map>
+        </div>
     );
 };
 
 export default AMapExample;
+

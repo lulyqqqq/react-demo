@@ -62,7 +62,7 @@ const Login = () => {
                                 message: 'Please input your Password!',
                             },
                         ]}>
-                        <Input className="login-input" size="large" placeholder="请输入密码"/>
+                        <Input.Password className="login-input" size="large" placeholder="请输入密码"/>
                     </Form.Item>
                     <Form.Item>
                         <Button className="login-button" type="primary" htmlType="submit" size="large">

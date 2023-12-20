@@ -96,18 +96,22 @@ const Layouts = () => {
     const selectedKeys = location.pathname
 
     const dispatch = useDispatch();
+
     // 触发个人用户信息
     useEffect(() => {
-        dispatch(fetchUserInfo())
+        const getUserInfo = async () =>{
+            dispatch(fetchUserInfo())
+        }
+        getUserInfo()
+
     }, [dispatch]);
 
     // 使用useSelector获取store中的数据
-    // const userInfo = useSelector(state => state.user.userInfo)
+    const userInfo = useSelector(state => state.user.userInfo)
 
     return (
         <Layout>
             <Sider trigger={null} collapsible collapsed={collapsed}>
-                <div className="demo-logo-vertical"/>
                 <Menu
                     theme="dark"
                     mode="inline"
@@ -141,19 +145,21 @@ const Layouts = () => {
                                     <Avatar size="large" src={require("@/assets/02.png")}/>
                                 </Space>
                             </span>
-                            <Dropdown
-                                menu={{
-                                    items,
-                                    onClick,
-                                }}
-                            >
-                                <a onClick={(e) => e.preventDefault()}>
-                                    <Space>
-
-                                        <DownOutlined/>
-                                    </Space>
-                                </a>
-                            </Dropdown>
+                            {userInfo && (
+                                <Dropdown
+                                    menu={{
+                                        items,
+                                        onClick,
+                                    }}
+                                >
+                                    <a onClick={(e) => e.preventDefault()}>
+                                        <Space>
+                                            {userInfo.name}
+                                            <DownOutlined />
+                                        </Space>
+                                    </a>
+                                </Dropdown>
+                            )}
 
                         </div>
                     </div>

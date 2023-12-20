@@ -1,14 +1,14 @@
-import {Breadcrumb, Card} from "antd";
+import {Breadcrumb, Card, } from "antd";
 import {Link} from "react-router-dom";
 
-const Customer = () => {
+const UpdateUser = () => {
     return (
         <div className="User">
             <Card
                 title={
                     <Breadcrumb items={[
-                        {title: <Link to={'/'}>首页</Link>},
-                        {title: '客户列表'},
+                        {title: <Link to={'/user'}>用户管理</Link>},
+                        {title: '更新用户'},
                     ]}
                     />
                 }>
@@ -18,4 +18,4 @@ const Customer = () => {
     )
 }
 
-export default Customer
+export default UpdateUser

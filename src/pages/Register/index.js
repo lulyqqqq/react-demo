@@ -65,7 +65,7 @@ const Register = () => {
                                 message: 'Please input your Password!',
                             },
                         ]}>
-                        <Input className="register-input" size="large" placeholder="请输入密码"/>
+                        <Input.Password className="register-input" size="large" placeholder="请输入密码"/>
                     </Form.Item>
                     <Form.Item
                         label="地址"

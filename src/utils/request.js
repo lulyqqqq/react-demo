@@ -6,7 +6,7 @@ import router from "@/router";
 const request = axios.create({
     // 设置基本连接的url和超时时间
     baseURL: 'http://localhost:8080',
-    timeout: 5000
+    timeout: 500000000000000000000000000000000000000
 })
 
 // 添加请求拦截器

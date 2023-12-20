@@ -11,11 +11,14 @@ const Home = lazy(() => import('@/pages/Home'))
 const User = lazy(() => import('@/pages/User'))
 const Device = lazy(() => import('@/pages/Device'))
 const Customer = lazy(() => import('@/pages/Customer'))
+const AddUser = lazy(() => import('@/pages/AddUser'))
+const UpdateUser = lazy(() => import('@/pages/UpdateUser'))
+
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layouts/>,
+        element: <AuthRoute><Layouts/></AuthRoute>,
         children: [
             {
                 index: true,
@@ -33,7 +36,14 @@ const router = createBrowserRouter([
                 path: "customer",
                 element: <Suspense fallback={'加载中'}><Customer/></Suspense>
             },
-
+            {
+                path: '/user/add',
+                element: <Suspense fallback={'加载中'}><AddUser/></Suspense>
+            },
+            {
+                path: '/user/update',
+                element: <Suspense fallback={'加载中'}><AddUser/></Suspense>
+            }
         ],
     },
     {
