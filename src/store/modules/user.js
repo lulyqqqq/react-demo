@@ -10,6 +10,7 @@ const userStore = createSlice({
     initialState: {
         // 先从localStage中取
         token: getToken() || '',
+        userInfo: {}
     },
     // 同步修改方法
     reducers: {
@@ -20,6 +21,7 @@ const userStore = createSlice({
         },
         setUserInfo(state, action) {
             state.userInfo = action.payload
+
         },
         // 清除用户信息
         clearUserInfo(state) {

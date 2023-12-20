@@ -173,11 +173,12 @@ const User = () => {
                                 </Button>
                             </FormItem>
                         </Flex>
-                        <Button
-                            type="primary"
-                            style={{width: 120}}
-                            onClick={() => navigate("/user/add")}
-                        >新增用户</Button>
+                        {userInfo.role === "0" &&
+                            <Button
+                                type="primary"
+                                style={{width: 120}}
+                                onClick={() => navigate("/user/add")}
+                            >新增用户</Button>}
 
                     </Flex>
                 </Form>

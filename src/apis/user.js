@@ -67,7 +67,7 @@ export function addUserApi(user) {
     })
 }
 
-// 7.修改用户信息
+// 8.修改用户信息
 export function updateUserApi(user) {
     // 返回的是promise ->res
     return request({
